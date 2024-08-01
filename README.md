@@ -13,4 +13,14 @@
 
     -GPT (AI)
         - Smart Search Bar
-        - Movie Suggestions              
+        - Movie Suggestions  
+
+# Steps
+    - Created React App.
+    - Configure Tailwing.
+    - Header
+    - Routing of App.
+    - Login/Sign Up Page.
+    - Validation using Regex.
+    - Setup Fiebase for Authentication.
+    - Created Redux store and Provided to App.
