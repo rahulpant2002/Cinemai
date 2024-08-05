@@ -5,15 +5,14 @@ import validateForm from '../Utils/validate'
 
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../Utils/firebase';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../Utils/ReduxStore/userSlice';
+import { PHOTO_URL } from '../Utils/constant';
 
 const Login = () => {
     const [isSignInForm, setIsSignInForm] = useState(true);
     const [errorMsg, setErrorMsg] = useState(null);
 
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const emailRef = useRef(null);
@@ -39,20 +38,17 @@ const Login = () => {
                 const user = userCredential.user;
                 updateProfile(user, {
                     displayName: nameRef.current.value,
-                    photoURL: "https://avatars.githubusercontent.com/u/120879275?s=400&u=15f953c729b3cb8f39258cad02718ce883ba0eaa&v=4"
+                    photoURL: PHOTO_URL
                 })
                 .then(() => {
                     const {uid, email, displayName, photoURL} = auth.currentUser;
                     dispatch(addUser({uid : uid, email : email, displayName : displayName, photoURL:photoURL}));
-                    navigate('/browse');
                 })
                 .catch((error) => {
                     setErrorMsg("Something Went Wrong...")
                 });
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
                 setErrorMsg("Email Id Already Exists...");
             });
         }
@@ -61,11 +57,8 @@ const Login = () => {
             signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                navigate('/browse');
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
                 setErrorMsg("Invalid Credentials...");
             });
         }
