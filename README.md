@@ -29,4 +29,5 @@
     - Fetch the details of Trailer from Redux Store eg. TrailerKey.
     - Used the Youtube Embedded Code with Trailer key to Generate the Trailer.
     - Build the Movie Lists.
-    - GPT Search Feature
+    - GPT Search Feature.
+    - Made the Smart-Search Page Bi-Lingual.

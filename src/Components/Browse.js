@@ -9,7 +9,7 @@ import useBollywoodMovies from '../hooks/useBollywoodMovies';
 import useUpcomingMovies from '../hooks/useUpcomingMovies';
 import useEvergreenMovies from '../hooks/useEvergreenMovies';
 import { useSelector } from 'react-redux';
-import SmartSearchContainer from './SmartSearchContainer';
+import SmartSearchPage from './SmartSearchPage';
 
 const Browse = () => {
   useNowPlayingMovies();
@@ -20,12 +20,11 @@ const Browse = () => {
   useEvergreenMovies();
 
   const isSmartSearch = useSelector((store)=> store?.smartSearch?.isSmartSearch);
-  // console.log(isSmartSearch);
   return (
     <div>
       <Header/>
       {
-        isSmartSearch ? <SmartSearchContainer/> : (
+        isSmartSearch ? <SmartSearchPage/> : (
           <>
             <MainContainer/>
             <SecondaryContainer/>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Logo from '../Utils/Logo.png'
 
 import { auth } from '../Utils/firebase';
@@ -7,15 +7,16 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, removeUser } from '../Utils/ReduxStore/userSlice';
 import {toggleSmartSearch} from '../Utils/ReduxStore/smartSearchSlice';
+import { supported_languages } from '../Utils/constant';
+import { chooseLang } from '../Utils/ReduxStore/configSlice';
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const user = useSelector((store)=>store.user);
+  const user = useSelector((store)=>store?.user);
   const isSmartSearch = useSelector((store)=>store.smartSearch?.isSmartSearch);
   
-
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -41,7 +42,11 @@ const Header = () => {
   }
 
   const handleSmartSearch = ()=>{
-    dispatch(toggleSmartSearch())
+    dispatch(toggleSmartSearch());
+  }
+
+  const handleLangChange = (e)=>{
+    dispatch(chooseLang(e.target.value));
   }
 
   return (
@@ -50,6 +55,11 @@ const Header = () => {
 
       {
         user && (<div className='flex gap-2'>
+
+          {isSmartSearch && <select className='p-2 bg-black mx-4 text-white mb-4 rounded-lg' onChange={handleLangChange}>
+            {supported_languages.map((lang)=> <option key={lang.id} value={lang.id}>{lang.name}</option>)}
+          </select>}
+
           <button onClick={handleSmartSearch} className='text-white bg-violet-700 rounded-lg mb-4 px-2'>{!isSmartSearch ? "Smart Search" : "Home Page"}</button>
 
           <div className='flex flex-col justify-center items-center'>
