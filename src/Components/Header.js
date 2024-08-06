@@ -6,10 +6,15 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, removeUser } from '../Utils/ReduxStore/userSlice';
+import {toggleSmartSearch} from '../Utils/ReduxStore/smartSearchSlice';
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const user = useSelector((store)=>store.user);
+  const isSmartSearch = useSelector((store)=>store.smartSearch?.isSmartSearch);
+  
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -27,7 +32,6 @@ const Header = () => {
         return ()=>unsubscribe();
     }, []);
 
-  const user = useSelector((store)=>store.user);
   const clickSignOut = ()=>{
     signOut(auth).then(() => {
     })
@@ -36,17 +40,24 @@ const Header = () => {
     });
   }
 
+  const handleSmartSearch = ()=>{
+    dispatch(toggleSmartSearch())
+  }
+
   return (
     <div className='px-10 py-6 w-screen absolute z-10 bg-gradient-to-b from-black flex justify-between'>
       <img src={Logo} alt="Logo" className='w-[12rem]'/>
 
       {
         user && (<div className='flex gap-2'>
-          <div className='text-center'>
-            <img src={user?.photoURL} alt="userIcon" className='w-10 h-10 ml-2' />
+          <button onClick={handleSmartSearch} className='text-white bg-violet-700 rounded-lg mb-4 px-2'>{!isSmartSearch ? "Smart Search" : "Home Page"}</button>
+
+          <div className='flex flex-col justify-center items-center'>
+            <img src={user?.photoURL} alt="userIcon" className='w-10 h-10 mx-2' />
             <p className='font-bold text-white'>{user?.displayName}</p>
           </div>
-          <button onClick={clickSignOut} className='font-bold text-white hover:text-orange-500 mb-4'>Sign Out</button>
+
+          <button onClick={clickSignOut} className='font-bold text-white hover:text-red-500 mb-4'>Sign Out</button>
         </div>)
       }
     </div>

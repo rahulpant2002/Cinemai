@@ -11,7 +11,7 @@
             - Movie Suggestions.
                 - MovieList * n
 
-    -GPT (AI)
+    -GPT (Movie Recommended System using AI)
         - Smart Search Bar
         - Movie Suggestions  
 
@@ -29,3 +29,4 @@
     - Fetch the details of Trailer from Redux Store eg. TrailerKey.
     - Used the Youtube Embedded Code with Trailer key to Generate the Trailer.
     - Build the Movie Lists.
+    - GPT Search Feature
