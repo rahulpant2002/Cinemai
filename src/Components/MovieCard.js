@@ -1,9 +1,15 @@
 import React from 'react'
 import { IMG_CDN_URL } from '../Utils/constant'
+import { useDispatch } from 'react-redux'
+import { watchTrailer } from '../Utils/ReduxStore/moviesSlice';
 
 const MovieCard = ({movie}) => {
+  const dipatch = useDispatch();
+  const onCardClick = (movieId)=>{
+    dipatch(watchTrailer(movieId));
+  }
   return (
-    <div className='text-center hover:cursor-pointer hover:bg-white hover:text-black'>
+    <div onClick={()=>onCardClick(movie?.id)} className='text-center hover:cursor-pointer hover:bg-white hover:text-black'>
       <div className='w-[180px]'>
         <img src={IMG_CDN_URL + movie?.poster_path} alt="poster" />
       </div>
@@ -13,4 +19,4 @@ const MovieCard = ({movie}) => {
   )
 }
 
-export default MovieCard
+export default MovieCard;

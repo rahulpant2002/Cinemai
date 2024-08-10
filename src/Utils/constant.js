@@ -20,3 +20,5 @@ export const supported_languages = [
     name : 'Hindi'
   }
 ]
+
+export const OPENAI_KEY = "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";

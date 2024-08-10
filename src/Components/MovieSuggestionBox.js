@@ -8,4 +8,4 @@ const MovieSuggestionBox = () => {
   )
 }
 
-export default MovieSuggestionBox
+export default MovieSuggestionBox;
