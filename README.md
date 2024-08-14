@@ -32,3 +32,6 @@
     - GPT Search Feature.
     - Made the Smart-Search Page Bi-Lingual.
     - Movie Trailer Generation of all movies.
+    - Memoization and AI feature added.
+    - Make Compatible for Mobile and Desktop.
+    - Favicon added.

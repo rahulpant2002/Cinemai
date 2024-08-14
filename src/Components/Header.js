@@ -55,7 +55,7 @@ const Header = () => {
       <img src={Logo} alt="Logo" className='w-[8rem] md:w-[12rem]'/>
 
       {
-        user && (<div className='flex md:gap-2 pt-5 md:pt-0 items-center justify-evenly'>
+        user && (<div className='flex md:gap-2 pt-5 md:pt-0 items-center justify-between '>
 
           {isSmartSearch && <select className='bg-black text-white p-1 mx-2 mb-2 rounded-md md:p-2 md:mx-4 md:mb-4 md:rounded-lg' onChange={handleLangChange}>
             {supported_languages.map((lang)=> <option key={lang.id} value={lang.id}>{lang.name}</option>)}
