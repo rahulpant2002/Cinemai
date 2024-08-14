@@ -40,7 +40,7 @@ const moviesSlice = createSlice({
         watchTrailer : (state, action)=>{
             state.showTrailer = action.payload;
         },
-        offTrailer : (state, action)=>{
+        offTrailer : (state)=>{
             state.showTrailer = null;
         }
     }

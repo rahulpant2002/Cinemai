@@ -21,4 +21,4 @@ export const supported_languages = [
   }
 ]
 
-export const OPENAI_KEY = "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";
+export const OPENAI_KEY = "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";

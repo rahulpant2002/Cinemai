@@ -29,14 +29,15 @@ const Browse = () => {
     <div>
       <Header/>
       {
-        isSmartSearch ? <SmartSearchPage/> : (
-            id ? <TrailerContainer movieId={id}/> :
+        id ? <TrailerContainer movieId={id}/> : (
+          isSmartSearch ? <SmartSearchPage/>:
             <>
               <MainContainer/>
               <SecondaryContainer/>
             </>
         )
       }
+    
     </div>
   )
 }

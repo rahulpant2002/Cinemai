@@ -3,8 +3,6 @@ import MovieTrailer from './MovieTrailer'
 import { useDispatch } from 'react-redux'
 import { offTrailer } from '../Utils/ReduxStore/moviesSlice';
 
-
-
 const TrailerContainer = ({movieId}) => {
     const dispatch = useDispatch();
     const handleClose = ()=>{                    

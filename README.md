@@ -31,3 +31,4 @@
     - Build the Movie Lists.
     - GPT Search Feature.
     - Made the Smart-Search Page Bi-Lingual.
+    - Movie Trailer Generation of all movies.

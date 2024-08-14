@@ -16,6 +16,7 @@ const Header = () => {
 
   const user = useSelector((store)=>store?.user);
   const isSmartSearch = useSelector((store)=>store.smartSearch?.isSmartSearch);
+  const showTrailer = useSelector((store)=>store?.movies?.showTrailer)
   
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -60,7 +61,7 @@ const Header = () => {
             {supported_languages.map((lang)=> <option key={lang.id} value={lang.id}>{lang.name}</option>)}
           </select>}
 
-          <button onClick={handleSmartSearch} className='text-white bg-violet-700 rounded-lg mb-4 px-2'>{!isSmartSearch ? "Smart Search" : "Home Page"}</button>
+          {!showTrailer && <button onClick={handleSmartSearch} className='text-white bg-violet-700 rounded-lg mb-4 px-2'>{!isSmartSearch ? "Smart Search" : "Home Page"}</button>}
 
           <div className='flex flex-col justify-center items-center'>
             <img src={user?.photoURL} alt="userIcon" className='w-10 h-10 mx-2' />
