@@ -7,7 +7,7 @@ const SmartSearchPage = () => {
   return (
     <div>
       <div className='fixed -z-10'>
-        <img src={BgImg} alt="bgImg" />
+        <img src={BgImg} alt="bgImg " className='h-screen object-cover md:h-auto '/>
       </div>
       <SearchBar/>
       <MovieSuggestionBox/>

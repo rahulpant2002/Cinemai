@@ -50,10 +50,10 @@ const SearchBar = ()=>{
     }
 
   return (
-    <div className='pt-[8%] flex justify-center'>
-      <form onSubmit={(e)=>e.preventDefault()} className='bg-black bg-opacity-75 w-[50%] rounded-lg'>
-        <input onKeyDown={handleEnter} ref={searchTextRef} type="text" placeholder={lang[langKey]?.placeholderText} className='py-2 px-4 my-4 mx-[2.5%] w-[75%]' />
-        <button onClick={handleSubmit} className='py-2 px-4 my-4 mx-[2.5%] w-[15%] bg-red-700 rounded-lg text-white'>{lang[langKey]?.search}</button>
+    <div className='md:pt-[8%] pt-[40%] flex justify-center '>
+      <form onSubmit={(e)=>e.preventDefault()} className='bg-black bg-opacity-75 w-[85%] md:w-[50%] rounded-lg '>
+        <input onKeyDown={handleEnter} ref={searchTextRef} type="text" placeholder={lang[langKey]?.placeholderText} className='py-1 px-2 my-2 md:py-2 md:px-4 md:my-4 mx-[2%] w-[75%] rounded-lg' />
+        <button onClick={handleSubmit} className='p-1 my-2 md:py-2 md:px-4 md:my-4 mx-[2%] w-[17%] bg-red-700 rounded-lg text-white'>{lang[langKey]?.search}</button>
       </form>
     </div>
   )

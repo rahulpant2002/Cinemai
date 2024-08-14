@@ -8,8 +8,9 @@ const TrailerContainer = ({movieId}) => {
     const handleClose = ()=>{                    
         dispatch(offTrailer(movieId));
     }
+    console.log(movieId);
     return (
-        <div >
+        <div className='pt-60 md:pt-0 bg-black'>
             <div>
                 <button onClick={handleClose} className='fixed z-30 bg-violet-700 text-white rounded-lg px-4 py-2 m-4 font-bold text-2xl'>Close ✘</button>
             </div>

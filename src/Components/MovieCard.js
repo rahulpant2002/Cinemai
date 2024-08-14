@@ -11,7 +11,7 @@ const MovieCard = ({movie}) => {
   const poster_path = movie?.poster_path;
   return (
     <div onClick={()=>onCardClick(movie?.id)} className='flex flex-col justify-between text-center bg-gray-700 hover:cursor-pointer hover:bg-white hover:text-black'>
-      <div className='w-[180px] bg-gray-400'>
+      <div className='w-[150px] md:w-[180px] bg-gray-400'>
         {poster_path && <img className='w-[100%]' src={IMG_CDN_URL + poster_path } alt="poster" />}
         {!poster_path && <div className='flex justify-center items-center bg-gray-400'>Poster Not Available</div>}
       </div>
